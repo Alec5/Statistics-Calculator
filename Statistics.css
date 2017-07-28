@@ -1,0 +1,48 @@
+﻿body {
+    background-color: #404343;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor:default;
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+
+#output {
+    background-color: #4C4D4F;
+    border: 2px solid #47B4CA;
+    border-radius: 8px;
+    word-wrap: break-word;
+    overflow-y: auto;
+    position: relative;
+    width: 80%;
+    height: 50%;
+    left: 7.5%;
+    top: 10%;
+    color: #CEE5E9;
+    font-size: 22px;
+    padding: 2%;
+}
+
+#insert_nums {
+    font-size: 28px;
+    color: #CEE5E9;
+    position: relative;
+    top: 3%;
+    left: 3%;
+}
+
+#num_input {
+    position: relative;
+    left: 4%;
+    margin-top: 2%;
+    width: 50%;
+}
+
+#calculate {
+    position:relative;
+    left:8%;
+    font-size:18px;
+
+}
