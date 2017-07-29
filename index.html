@@ -1,65 +1,10 @@
 <html>
-<head>
+  <head>
     <title>Statistics Calculator</title>
-</head>
-<body>
-    <p id="insert_nums">Insert numbers here (separated by spaces)</p>
-    <input type="text" id="num_input" />
-    <button id="calculate" onclick="calculate();">Calculate Statistics</button>
-    <div id="output"></div>
-    <style>
-      body {
-    background-color: #404343;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    cursor:default;
-	position:fixed;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-}
-
-#output {
-    background-color: #4C4D4F;
-    border: 2px solid #47B4CA;
-    border-radius: 8px;
-    word-wrap: break-word;
-    overflow-y: auto;
-    position: relative;
-    width: 80%;
-    height: 50%;
-    left: 7.5%;
-    top: 10%;
-    color: #CEE5E9;
-    font-size: 22px;
-    padding: 2%;
-}
-
-#insert_nums {
-    font-size: 28px;
-    color: #CEE5E9;
-    position: relative;
-    top: 3%;
-    left: 3%;
-}
-
-#num_input {
-    position: relative;
-    left: 4%;
-    margin-top: 2%;
-    width: 50%;
-}
-
-#calculate {
-    position:relative;
-    left:8%;
-    font-size:18px;
-
-}
-
-    <style>
-    <script type="text/javascript">
-      let nums = [];
+  </head>
+  <body>
+     <script type="text/javscript">
+       let nums = [];
 let deviations = [];
 var sum = 0;
 var dev_sum = 0;
@@ -72,7 +17,6 @@ var max = 0;
 var input = document.getElementById("num_input");
 var output = document.getElementById("output");
 var br = document.createElement("br");
-
 function reset(){
     output.innerHTML = null;
     nums = [];
@@ -89,37 +33,30 @@ function reset(){
 function calculate(){
     //reset values
     reset();
-
     //order the numbers
     nums = input.value.split(' ').map(Number);
     nums.sort(function(a, b){return a-b});
-
     //find the min and max 
     min = nums[0];       
     max = nums.slice(-1)[0]
-
     //find the mean
     for (var i = 0; i < nums.length; i++){
         sum += nums[i];
     }
     mean = sum/nums.length;
-
     //find the median
     var half = Math.floor(nums.length / 2);
-
     if (nums.length % 2){
         median = nums[half];
     } else {
         median = (nums[half - 1] + nums[half]) / 2.0;
         }
-
     //find the MAD
     for (var j = 0; j < nums.length; j++){
         deviations[j] = Math.abs(mean - nums[j])
         dev_sum += deviations[j];
     }
     mad = dev_sum/deviations.length;
-
     //find the mode
     var valuesSoFar = [];
     for (var k = 0; k < nums.length; k++) {
@@ -146,14 +83,58 @@ function calculate(){
     output.appendChild(br);
     output.innerHTML += ("Mean Absolute Deviation: " + mad)
 }
-
 document.addEventListener("keypress", enterCheck);
-
 function enterCheck(e) {
   if (13 == e.keyCode) {
      calculate();
   }
 }
     </script>
-</body>
+  </body>
+  <style>
+    body {
+    background-color: #404343;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor:default;
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+#output {
+    background-color: #4C4D4F;
+    border: 2px solid #47B4CA;
+    border-radius: 8px;
+    word-wrap: break-word;
+    overflow-y: auto;
+    position: relative;
+    width: 80%;
+    height: 50%;
+    left: 7.5%;
+    top: 10%;
+    color: #CEE5E9;
+    font-size: 22px;
+    padding: 2%;
+}
+#insert_nums {
+    font-size: 28px;
+    color: #CEE5E9;
+    position: relative;
+    top: 3%;
+    left: 3%;
+}
+#num_input {
+    position: relative;
+    left: 4%;
+    margin-top: 2%;
+    width: 50%;
+}
+#calculate {
+    position:relative;
+    left:8%;
+    font-size:18px;
+}
+  </style>
 </html>
+
